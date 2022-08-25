@@ -7,7 +7,7 @@ function divCreation(divClass,divSecondClass){
     }    
     return div;
 };
-//-------------- function for Background color changer / Class adding ---------
+//-------------- function for Background color change / Class adding ---------
 
 function paint(element,color){
     element.style.backgroundColor = color;
@@ -17,6 +17,33 @@ function rainbowPaint(element){
     color=Math.floor(Math.random()*16777215).toString(16);
     console.log(color);
     element.style.backgroundColor = `#${color}`;
+
+
+    // Notas de interes:
+        // 16777215 es la maxima combinacion de colores hexadecimales
+        // toString(16) convierte el numero a formato Hexadecimal, toString(2) a binario y asi
+}
+
+
+//------------------- Replace color function --------------------------------
+function colorButtons(buttonQuery,color){
+
+    buttonQuery.addEventListener('click',()=>{
+
+        const squares = document.querySelectorAll(".column");
+    
+            squares.forEach(square => square.addEventListener('mouseover',(e)=> {
+                console.log(e);
+                if (color == "rainbow"){
+                    rainbowPaint(square);
+                    return;
+                };
+                paint(square,color);
+            }
+            ));
+        
+    });
+
 }
 
 //-----------------------------------------Replace grid function-----
@@ -44,7 +71,7 @@ function createGrid(size){
         
         }
 
-        //pMake grid sensible to hovering ----------
+        //Make grid sensible to hovering ----------
 
         const squares = document.querySelectorAll(".column");
 
@@ -81,30 +108,15 @@ sizeButton.addEventListener('click',()=>{
 
 // Eraser button ------------------
 const eraseButton = document.querySelector('#eraser');
+colorButtons(eraseButton,"white");
 
-eraseButton.addEventListener('click',()=>{
-
-    const squares = document.querySelectorAll(".column");
-
-        squares.forEach(square => square.addEventListener('mouseover',(e)=> {
-            paint(square,"white");
-        }
-        ));
-    
-});
+// Black button --------------------
+const blackButton = document.querySelector('#black');
+colorButtons(blackButton,"black");
 
 // Rainbow button --------------------
 const rainbowButton = document.querySelector('#rainbow');
+colorButtons(rainbowButton,"rainbow");
 
-rainbowButton.addEventListener('click',()=>{
 
-    const squares = document.querySelectorAll(".column");
-
-        squares.forEach(square => square.addEventListener('mouseover',(e)=> {
-            console.log(e);
-            rainbowPaint(square);
-        }
-        ));
-    
-});
 

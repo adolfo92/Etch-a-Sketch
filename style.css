@@ -1,5 +1,14 @@
+/*-------------- Estado natural -----------------*/
+
 .column{
-    width: 10px;
-    height: 10px;
-    display: inline-block;   
+    height: 30px;
+    width: 30px;
+    border: solid 1px black;
 }
+.row{
+    display: flex;
+    align-items: center;
+}
+
+/*-------------- Estados alterados ---------------------*/
+

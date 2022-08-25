@@ -7,6 +7,12 @@ function divCreation(divClass,divSecondClass){
     }    
     return div;
 };
+//----- function for Background color changer / Class adding ---------
+
+function paint(element,color){
+    element.style.backgroundColor = color;
+
+}
 
 
 //----- HTML Grid creation ----
@@ -23,3 +29,12 @@ for(let rowNum = 1; rowNum <= 16;rowNum++){
     }
 
 }
+
+//----- Make grid sensible to hovering ----------
+
+const squares = document.querySelectorAll(".column");
+
+squares.forEach(square => square.addEventListener('mouseover',(e)=> {
+    console.log(e);
+    paint(square,"black");}
+    ));

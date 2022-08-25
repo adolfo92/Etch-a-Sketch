@@ -15,7 +15,36 @@ function paint(element,color){
 }
 
 
-//----- HTML Grid creation ----
+//----------Replace grid function-----
+
+function createGrid(size){
+    if (size<=100 && size >=2){
+        // Remove previous grid
+        while (container.hasChildNodes()){
+            console.log("Check 1");
+            container.removeChild(container.firstChild);
+        }
+        
+        //Create new grid
+        for(let rowNum = 1; rowNum <= size;rowNum++){
+
+            let createdRow = container.appendChild(divCreation("row",rowNum));
+        
+            for(let colNum = 1; colNum<=size;colNum++){
+                
+                createdRow.appendChild(divCreation("column",colNum));
+            }
+        
+        }
+
+        return;
+
+    }
+
+    return alert("Invalid input, size must be between 2 and 100");
+}
+
+//----- base HTML Grid creation ----
 
 const container = document.querySelector(".gridContainer");
 
@@ -36,5 +65,16 @@ const squares = document.querySelectorAll(".column");
 
 squares.forEach(square => square.addEventListener('mouseover',(e)=> {
     console.log(e);
-    paint(square,"black");}
+    paint(square,"black");
+    }
     ));
+
+//------- Button behaviors -------------
+
+// Size Change --------------------
+const button = document.querySelector('#size-change');
+
+button.addEventListener('click',()=>{
+    let newSize = prompt("Grid size?");
+    createGrid(newSize);
+});

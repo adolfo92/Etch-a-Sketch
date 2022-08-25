@@ -35,6 +35,7 @@ function colorButtons(buttonQuery,color){
             squares.forEach(square => square.addEventListener('mouseover',(e)=> {
                 console.log(e);
                 if (color == "rainbow"){
+
                     rainbowPaint(square);
                     return;
                 };
@@ -88,13 +89,6 @@ function createGrid(size){
     return alert("Invalid input, size must be between 2 and 100");
 }
 
-//----- base HTML Grid creation ----
-
-const container = document.querySelector(".gridContainer");
-
-createGrid(16);
-
-
 //---------------------------------------- Button behaviors -------------
 
 
@@ -119,4 +113,8 @@ const rainbowButton = document.querySelector('#rainbow');
 colorButtons(rainbowButton,"rainbow");
 
 
+//----- base HTML Grid creation ----
 
+const container = document.querySelector(".gridContainer");
+
+createGrid(16);

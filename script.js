@@ -11,9 +11,13 @@ function divCreation(divClass,divSecondClass){
 
 function paint(element,color){
     element.style.backgroundColor = color;
-
 }
+function rainbowPaint(element){
 
+    color=Math.floor(Math.random()*16777215).toString(16);
+    console.log(color);
+    element.style.backgroundColor = `#${color}`;
+}
 
 //-----------------------------------------Replace grid function-----
 
@@ -45,7 +49,6 @@ function createGrid(size){
         const squares = document.querySelectorAll(".column");
 
         squares.forEach(square => square.addEventListener('mouseover',(e)=> {
-            console.log(e);
             paint(square,"black");
         }
         ));
@@ -84,8 +87,22 @@ eraseButton.addEventListener('click',()=>{
     const squares = document.querySelectorAll(".column");
 
         squares.forEach(square => square.addEventListener('mouseover',(e)=> {
-            console.log(e);
             paint(square,"white");
+        }
+        ));
+    
+});
+
+// Rainbow button --------------------
+const rainbowButton = document.querySelector('#rainbow');
+
+rainbowButton.addEventListener('click',()=>{
+
+    const squares = document.querySelectorAll(".column");
+
+        squares.forEach(square => square.addEventListener('mouseover',(e)=> {
+            console.log(e);
+            rainbowPaint(square);
         }
         ));
     

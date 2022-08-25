@@ -11,9 +11,11 @@ function divCreation(divClass,divSecondClass){
 
 //----- HTML Grid creation ----
 
+const container = document.querySelector(".gridContainer");
+
 for(let rowNum = 1; rowNum <= 16;rowNum++){
 
-    let createdRow = document.body.appendChild(divCreation("row",rowNum));
+    let createdRow = container.appendChild(divCreation("row",rowNum));
 
     for(let colNum = 1; colNum<=16;colNum++){
         

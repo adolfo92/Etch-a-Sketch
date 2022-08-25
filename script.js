@@ -18,14 +18,17 @@ function paint(element,color){
 //----------Replace grid function-----
 
 function createGrid(size){
+
+    //Grid boundaries------------
     if (size<=100 && size >=2){
-        // Remove previous grid
+
+        // Remove previous grid---------------------
         while (container.hasChildNodes()){
             console.log("Check 1");
             container.removeChild(container.firstChild);
         }
         
-        //Create new grid
+        //Create new grid----------------
         for(let rowNum = 1; rowNum <= size;rowNum++){
 
             let createdRow = container.appendChild(divCreation("row",rowNum));
@@ -36,6 +39,17 @@ function createGrid(size){
             }
         
         }
+
+        //pMake grid sensible to hovering ----------
+
+        const squares = document.querySelectorAll(".column");
+
+        squares.forEach(square => square.addEventListener('mouseover',(e)=> {
+            console.log(e);
+            paint(square,"black");
+        }
+        ));
+
 
         return;
 
@@ -48,26 +62,8 @@ function createGrid(size){
 
 const container = document.querySelector(".gridContainer");
 
-for(let rowNum = 1; rowNum <= 16;rowNum++){
+createGrid(16);
 
-    let createdRow = container.appendChild(divCreation("row",rowNum));
-
-    for(let colNum = 1; colNum<=16;colNum++){
-        
-        createdRow.appendChild(divCreation("column",colNum));
-    }
-
-}
-
-//----- Make grid sensible to hovering ----------
-
-const squares = document.querySelectorAll(".column");
-
-squares.forEach(square => square.addEventListener('mouseover',(e)=> {
-    console.log(e);
-    paint(square,"black");
-    }
-    ));
 
 //------- Button behaviors -------------
 
@@ -78,3 +74,6 @@ button.addEventListener('click',()=>{
     let newSize = prompt("Grid size?");
     createGrid(newSize);
 });
+
+// Eraser button ------------------
+

@@ -26,5 +26,10 @@ button{
     margin:50px;
 }
 
+#buttons-field{
+    display: flex;
+    flex-direction: column;
+}
+
 /*-------------- Estados alterados ---------------------*/
 

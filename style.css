@@ -1,13 +1,23 @@
 /*-------------- Estado natural -----------------*/
-
-.column{
-    height: 30px;
-    width: 30px;
+body{
+    display: flex;
+    justify-content: center;
+}
+.gridContainer{
     border: solid 1px black;
+    width: 800px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+}
+.column{
+    display: flex;
+    flex-direction: row;
+    flex:1;
 }
 .row{
     display: flex;
-    align-items: center;
+    flex:1;
 }
 
 /*-------------- Estados alterados ---------------------*/

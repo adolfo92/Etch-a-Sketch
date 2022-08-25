@@ -1,4 +1,4 @@
-//------ div creation function --------
+//------------------------------------------------ div creation function --------
 function divCreation(divClass,divSecondClass){
     const div = document.createElement("div");
     div.classList.add(divClass);
@@ -7,7 +7,7 @@ function divCreation(divClass,divSecondClass){
     }    
     return div;
 };
-//----- function for Background color changer / Class adding ---------
+//-------------- function for Background color changer / Class adding ---------
 
 function paint(element,color){
     element.style.backgroundColor = color;
@@ -15,7 +15,7 @@ function paint(element,color){
 }
 
 
-//----------Replace grid function-----
+//-----------------------------------------Replace grid function-----
 
 function createGrid(size){
 
@@ -65,15 +65,29 @@ const container = document.querySelector(".gridContainer");
 createGrid(16);
 
 
-//------- Button behaviors -------------
+//---------------------------------------- Button behaviors -------------
+
 
 // Size Change --------------------
-const button = document.querySelector('#size-change');
+const sizeButton = document.querySelector('#size-change');
 
-button.addEventListener('click',()=>{
+sizeButton.addEventListener('click',()=>{
     let newSize = prompt("Grid size?");
     createGrid(newSize);
 });
 
 // Eraser button ------------------
+const eraseButton = document.querySelector('#eraser');
+
+eraseButton.addEventListener('click',()=>{
+
+    const squares = document.querySelectorAll(".column");
+
+        squares.forEach(square => square.addEventListener('mouseover',(e)=> {
+            console.log(e);
+            paint(square,"white");
+        }
+        ));
+    
+});
 

@@ -13,6 +13,11 @@ function divCreation(divClass,divSecondClass){
 
 for(let rowNum = 1; rowNum <= 16;rowNum++){
 
-    document.body.appendChild(divCreation("row",rowNum));
+    let createdRow = document.body.appendChild(divCreation("row",rowNum));
+
+    for(let colNum = 1; colNum<=16;colNum++){
+        
+        createdRow.appendChild(divCreation("column",colNum));
+    }
 
 }

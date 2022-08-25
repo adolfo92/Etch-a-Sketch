@@ -10,10 +10,10 @@ function divCreation(divClass,divSecondClass){
 //-------------- function for Background color change / Class adding ---------
 
 function paint(element,color){
+
     element.style.backgroundColor = color;
 }
 function rainbowPaint(element){
-
     color=Math.floor(Math.random()*16777215).toString(16);
     console.log(color);
     element.style.backgroundColor = `#${color}`;
@@ -33,7 +33,6 @@ function colorButtons(buttonQuery,color){
         const squares = document.querySelectorAll(".column");
     
             squares.forEach(square => square.addEventListener('mouseover',(e)=> {
-                console.log(e);
                 if (color == "rainbow"){
 
                     rainbowPaint(square);
@@ -56,7 +55,6 @@ function createGrid(size){
 
         // Remove previous grid---------------------
         while (container.hasChildNodes()){
-            console.log("Check 1");
             container.removeChild(container.firstChild);
         }
         
@@ -80,7 +78,6 @@ function createGrid(size){
             paint(square,"black");
         }
         ));
-
 
         return;
 
@@ -113,7 +110,7 @@ const rainbowButton = document.querySelector('#rainbow');
 colorButtons(rainbowButton,"rainbow");
 
 
-//----- base HTML Grid creation ----
+//------------------------------------------------------- base HTML Grid creation ---------------------------------------------------------------------
 
 const container = document.querySelector(".gridContainer");
 
